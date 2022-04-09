@@ -88,8 +88,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\blinkSomething;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;$(ProjectDir)..\..\..\DOCUME~1\Arduino\BLINKS~1;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include-fixed;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ProjectDir)__vm\.blinkSomething.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\weather;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard;$(ProjectDir)..\..\..\..\Downloads\Grove_LED_Bar-master;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\\lib\gcc\avr\7.3.0\include;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include-fixed;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.weather.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_atmega328p__;__AVR_ATmega328P__;__AVR_ATmega328p__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=108019;ARDUINO_AVR_UNO;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -106,10 +106,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Downloads\Grove_LED_Bar-master\Grove_LED_Bar.h" />
     <ClInclude Include="DHT.h" />
     <ClInclude Include="__vm\.blinkSomething.vsarduino.h" />
+    <ClInclude Include="__vm\.Weather.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Downloads\Grove_LED_Bar-master\Grove_LED_Bar.cpp" />
     <ClCompile Include="DHT.cpp" />
   </ItemGroup>
   <PropertyGroup>

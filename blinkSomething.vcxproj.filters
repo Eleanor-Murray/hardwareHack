@@ -24,9 +24,18 @@
     <ClInclude Include="DHT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="__vm\.Weather.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\Grove_LED_Bar-master\Grove_LED_Bar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DHT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Downloads\Grove_LED_Bar-master\Grove_LED_Bar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

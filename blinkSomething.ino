@@ -1,66 +1,74 @@
-
 #include <math.h>
 #include "DHT.h"
 
 #define DHTPIN 3 
 #define DHTTYPE DHT11
+#define LIGHT_SENSOR A6
 
 int ledPin = 4;
 
 DHT dht(DHTPIN, DHTTYPE);
 
-void setup() {
+void setup() 
+{
 	Serial.begin(9600);
 	pinMode(ledPin, OUTPUT);
-	Serial.println(F("hello"));
-	Serial.println(F("DHTxx test!"));
-
 	dht.begin();
 }
 
-// the loop function runs over and over again forever
 void loop() {
 	digitalWrite(ledPin, HIGH);   // turn the LED on (HIGH is the voltage level)
 	delay(1000);                       // wait for a second
 	digitalWrite(ledPin, LOW);    // turn the LED off by making the voltage LOW
 	delay(1000);                       // wait for a second
 
-
 	//temperature sensor
-	// Wait a few seconds between measurements.
-	delay(2000);
 
-	// Reading temperature or humidity takes about 250 milliseconds!
-	// Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+	//humidity value in Fahrenheit
 	float h = dht.readHumidity();
-	// Read temperature as Celsius (the default)
-	float t = dht.readTemperature();
-	// Read temperature as Fahrenheit (isFahrenheit = true)
+
+	//temperature value in Fahrenheit
 	float f = dht.readTemperature(true);
 
 	// Check if any reads failed and exit early (to try again).
-	if (isnan(h) || isnan(t) || isnan(f)) 
+	if (isnan(h) || isnan(f)) 
 	{
-		Serial.println(F("Failed to read from DHT sensor!"));
+		Serial.println(F("Sensor failure."));
 		return;
 	}
 
-	// Compute heat index in Fahrenheit (the default)
+	// Heat Index (Fahrenheit)
 	float hif = dht.computeHeatIndex(f, h);
-	// Compute heat index in Celsius (isFahreheit = false)
-	float hic = dht.computeHeatIndex(t, h, false);
 
-	Serial.print(F("Humidity\tTempurature(C)\tTemperature(F)\tHeat Index(C)\tHeat Index(F)\n"));
+	Serial.print(F("\n\nTemperature Readings: "));
 
-	Serial.print(F("  "));
+	Serial.print(F("\n\tHumidity: "));
 	Serial.print(h);
-	Serial.print(F("%\t\t"));
-	Serial.print(t);
-	Serial.print(F("\t\t"));
+	Serial.print(F("\n\tTemperature: "));
 	Serial.print(f);
-	Serial.print(F("\t\t"));
-	Serial.print(hic);
-	Serial.print(F("\t\t"));
+	Serial.print(F("\n\tHeat Index: "));
 	Serial.print(hif);
-	Serial.println(F("\t\t"));
+	Serial.println(F("\n"));
+
+	
+	if (f < 32) { Serial.println(F("\n\t\tIt is cold, bring your coat!")); }
+	if (f < 50){Serial.println(F("\n\t\tIt is chilly today, pack a jacket"));}
+	if (f < 75) { Serial.println(F("\n\t\tIt is warm, long sleeves will do!"));}
+	else { Serial.println(F("\n\t\tIt is hot, bust out the sunscreen!")); }
+
+	//brightness value
+	int analogValue = analogRead(LIGHT_SENSOR);
+
+	Serial.println("\n\nBrightness Readings:  \n\t");
+	Serial.print(analogValue);
+
+	if (analogValue < 10) {Serial.println(": It is dark, wear something bright to stand out!");}
+
+	else if (analogValue < 200) {Serial.println(": It is cloudy today, dress cozy - there may be rain!");}
+
+	else if (analogValue < 500) {Serial.println(": It is partially sunny, wear something fashionable!");}
+	
+	else if (analogValue < 800) {Serial.println(": The sun is out! Bring sunglasses.");}
+
+	else {Serial.println(": It is very bright, wear sunscreen!");}
 }
